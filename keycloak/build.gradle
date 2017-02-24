@@ -1,0 +1,8 @@
+description "use keycloak authenticate"
+
+dependencies {
+    compile group: 'org.keycloak', name: 'keycloak-spring-boot-adapter', version: '2.4.0.Final'
+    compile group: 'org.keycloak', name: 'keycloak-tomcat8-adapter', version: '2.4.0.Final'
+
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
