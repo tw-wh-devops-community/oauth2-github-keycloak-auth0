@@ -1,3 +1,4 @@
 include 'github'
 include 'keycloak'
+include 'keycloaksecurity'
 
