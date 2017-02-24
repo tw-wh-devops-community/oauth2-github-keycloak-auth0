@@ -9,6 +9,7 @@
     <div>
         <div class="header">
             <span><a href="admin/index.html" target="_self">管理员权限</a></span>
+            <span><a href="/sso/logout">log out</a></span>
             <div style="background-color: antiquewhite;" id="current"></div>
         </div>
         <div>
@@ -17,8 +18,11 @@
     </div>
 </body>
 <script>
-    $.get("/user", function (res) {
-        $("#current").html(JSON.stringify(res));
-    })
+    function refresh() {
+        $.get("/user", function (res) {
+            $("#current").html(JSON.stringify(res));
+        });
+    }
+    refresh();
 </script>
 </html>
