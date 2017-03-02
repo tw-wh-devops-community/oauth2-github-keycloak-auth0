@@ -1,0 +1,8 @@
+{
+  "realm": "tw-wh",
+  "auth-server-url": "http://192.168.99.100:8081/auth",
+  "ssl-required": "external",
+  "resource": "tw-wh-frontend",
+  "public-client": true,
+  "clientId": "tw-wh-frontend"
+}
