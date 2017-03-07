@@ -12,6 +12,7 @@ import org.springframework.security.saml.metadata.MetadataManager;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
 import java.util.List;
 
@@ -26,9 +27,10 @@ public class AccountController {
 
 
     @RequestMapping
-    public Account current() {
+    public Account current(HttpServletRequest request) {
+        Principal userPrincipal = request.getUserPrincipal();
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String name = (String) authentication.getPrincipal();
+        String name =  userPrincipal.getName();
         SAMLCredential credentials = (SAMLCredential) ((ExpiringUsernameAuthenticationToken) authentication).getCredentials();
         Attribute admin = credentials.getAttribute("admin");
         List<XMLObject> attributeValues = admin.getAttributeValues();
