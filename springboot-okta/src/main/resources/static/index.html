@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>spring security okta</title>
+    <script src="jquery.js"></script>
+</head>
+<body>
+<h2>okta application</h2>
+<h4>welcome,</h4><h6 id="user"></h6>
+<form action="/saml/logout" method="post">
+    <input type="hidden" name="local" value="false"/>
+    <input type="submit" value="Log Out"/>
+</form>
+</body>
+<script>
+    $.get("/account", function (data) {
+        $("#user").html(JSON.stringify(data));
+    });
+</script>
+</html>
